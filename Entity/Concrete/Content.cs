@@ -19,7 +19,7 @@ namespace Entity.Concrete
         public int TitleId { get; set; }
         public virtual Title Title { get; set; }
 
-        public int AuthorId { get; set; }
+        public int? AuthorId { get; set; }
         public virtual Author Author { get; set; }
     }
 }
