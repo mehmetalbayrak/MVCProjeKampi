@@ -8,24 +8,29 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <title>Index</title>
 </head>
+
 <body>
     <div> 
-        <table>
+        <table class="table table-bordered">
             <tr>
                 <th>Kategori ID</th>
                 <th>Kategori Adı</th>
                 <th>Kategori Açıklama</th>
                 <th>Kategori Durum</th>
+                <th>Kategori Güncelle</th>
             </tr>
             <tr>
                 <td>1</td>
                 <td>Eğitim</td>
                 <td>Bu bir Eğitim kategorisidir.</td>
                 <td>True</td>
+                <td><btn class="btn btn-success">Güncelle</btn></td>
             </tr>
         </table>
+        <button class="btn btn-info">Yeni kategori</button>
     </div>
 </body>
 </html>

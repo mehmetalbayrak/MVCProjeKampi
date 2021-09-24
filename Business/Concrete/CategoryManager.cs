@@ -1,4 +1,6 @@
-﻿using DataAccess.Concrete.Repositories;
+﻿using Business.Abstract;
+using DataAccess.Abstract;
+using DataAccess.Concrete.Repositories;
 using Entity.Concrete;
 using System;
 using System.Collections.Generic;
@@ -8,25 +10,43 @@ using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
-    public class CategoryManager
+    public class CategoryManager : ICategoryService
     {
-        GenericRepository<Category> _genericRepository = new GenericRepository<Category>();
+        //GenericRepository<Category> _genericRepository = new GenericRepository<Category>();
 
-        public List<Category> GetAll()
+        //public List<Category> GetAll()
+        //{
+        //    return _genericRepository.List();
+        //}
+
+        //public void CategoryAdd(Category category)
+        //{
+
+        //    if (category.CategoryName == "" || category.CategoryName.Length <= 2 || category.CategoryName.Length >= 51 || category.CategoryDescription == "")
+        //    {
+
+        //    }
+        //    else
+        //    {
+        //        _genericRepository.Insert(category);
+        //    }
+        //}
+
+        ICategoryDal _categoryDal;
+
+        public CategoryManager(ICategoryDal categoryDal)
         {
-            return _genericRepository.List();
+            _categoryDal = categoryDal;
         }
 
-        public void CategoryAdd(Category category)
+        public void AddCategory(Category category)
         {
-            if (category.CategoryName=="" || category.CategoryName.Length <= 2 || category.CategoryName.Length >= 51 || category.CategoryDescription=="")
-            {
-                // hata mesajı
-            }
-            else
-            {
-                _genericRepository.Insert(category);
-            }
+            _categoryDal.Insert(category);
+        }
+
+        public List<Category> GetList()
+        {
+            return _categoryDal.List();
         }
     }
 }
