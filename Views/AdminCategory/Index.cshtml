@@ -1,4 +1,5 @@
-﻿
+﻿@using Entity.Concrete
+@model List<Category>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -6,23 +7,29 @@
 
 <h2>Admin Category Index</h2>
 <div>
-    <table class="table table-bordered" style="margin-top:20px">
+    <table class="table table-bordered">
         <tr>
-            <th>ID</th>
-            <th>Kategori Açıklama</th>
-            <th>Durum</th>
+            <th>#</th>
+            <th>Kategori Adı</th>
+            <th>Açıklama</th>
+            <th>Kategori Durum</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th>Başlıklar</th>
         </tr>
-        <tr>
-            <td>1</td>
-            <td>Spor</td>
-            <td>True</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Eğitim</td>
-            <td>True</td>
-        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
 
+                <th>@item.CategoryId</th>
+                <td>@item.CategoryName</td>
+                <td>@item.CategoryDescription</td>
+                <td>@item.CategoryStatus</td>
+                <td><a href="/AdminCategory/DeleteCategory/@item.CategoryId" class="btn btn-danger">Sil</a> </td>
+                <td><a href="/AdminCategory/UpdateCategory/@item.CategoryId" class="btn btn-success">Güncelle</a> </td>
+                <td><a href="#" class="btn btn-warning">Başlıklara git</a> </td>
+            </tr>
+        }
     </table>
+    <a href="/AdminCategory/AddCategory" class="btn btn-primary">Yeni Kategori</a>
 </div>
-

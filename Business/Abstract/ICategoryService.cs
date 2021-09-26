@@ -11,5 +11,8 @@ namespace Business.Abstract
     {
         List<Category> GetList();
         void AddCategory(Category category);
+        Category GetById(int id);
+        void DeleteCategory(Category category);
+        void UpdateCategory(Category category);
     }
 }
