@@ -1,0 +1,46 @@
+﻿@model Entity.Concrete.Author
+@{
+    ViewBag.Title = "AddAuthor";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yeni Yazar Ekleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("AddAuthor", "Author", FormMethod.Post))
+{
+<div class="form-group">
+    <div>
+        @Html.Label("Yazar Adı")
+        @Html.TextBoxFor(x => x.AuthorName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.AuthorName)
+    </div>
+    <div>
+        @Html.Label("Yazar Soyadı")
+        @Html.TextBoxFor(x => x.AuthorSurname, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.AuthorSurname)
+    </div>
+    <div>
+        @Html.Label("Hakkımda")
+        @Html.TextBoxFor(x => x.AuthorAbout, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.AuthorAbout)
+    </div>
+    <div>
+        @Html.Label("Yazar Görsel Linki")
+        @Html.TextBoxFor(x => x.AuthorImage, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.AuthorImage)
+    </div>
+    <div>
+        @Html.Label("E-posta Adresi")
+        @Html.TextBoxFor(x => x.AuthorEmail, new { @class = "form-control" })
+    </div>
+    <div>
+        @Html.Label("Parola")
+        @Html.TextBoxFor(x => x.AuthorPassword, new { @class = "form-control" })
+    </div>
+</div>
+    <br />
+    <div><button class="btn btn-primary">Kaydet</button></div>
+
+
+}
+

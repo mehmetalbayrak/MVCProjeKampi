@@ -1,0 +1,39 @@
+﻿@model Entity.Concrete.Author
+@{
+    ViewBag.Title = "EditAuthor";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yazar Düzenleme Sayfası</h2>
+@using (Html.BeginForm("EditAuthor", "Author", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.Label("Yazar ID")
+    @Html.TextBoxFor(x => x.AuthorId, new { @class = "form-control" })
+    @Html.Label("Yazar Adı")
+    @Html.TextBoxFor(x => x.AuthorName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.AuthorName, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("Yazar Soyadı")
+    @Html.TextBoxFor(x => x.AuthorSurname, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.AuthorSurname, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("Yazar Ünvanı")
+    @Html.TextBoxFor(x => x.AuthorTitle, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.AuthorTitle, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("Yazar Görsel Linki")
+    @Html.TextBoxFor(x => x.AuthorImage, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.AuthorImage, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("Yazar E-posta")
+    @Html.TextBoxFor(x => x.AuthorEmail, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.AuthorEmail, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("Yazar Parolası")
+    @Html.TextBoxFor(x => x.AuthorPassword, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.AuthorPassword, "", new { @class = "text-danger" })
+</div>
+    <button class="btn btn-success">Değişiklikleri Uygula</button>
+}
+

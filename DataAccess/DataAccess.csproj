@@ -61,11 +61,27 @@
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\Repositories\CategoryRepository.cs" />
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
+    <Compile Include="EntityFramework\EfAuthorDal.cs" />
     <Compile Include="EntityFramework\EfCategoryDal.cs" />
+    <Compile Include="Migrations\202109281430292_mig_author_edit.cs" />
+    <Compile Include="Migrations\202109281430292_mig_author_edit.designer.cs">
+      <DependentUpon>202109281430292_mig_author_edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109281715444_mig_authortitle_add.cs" />
+    <Compile Include="Migrations\202109281715444_mig_authortitle_add.designer.cs">
+      <DependentUpon>202109281715444_mig_authortitle_add.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202109281430292_mig_author_edit.resx">
+      <DependentUpon>202109281430292_mig_author_edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109281715444_mig_authortitle_add.resx">
+      <DependentUpon>202109281715444_mig_authortitle_add.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
