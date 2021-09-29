@@ -72,6 +72,10 @@
     <Compile Include="Migrations\202109281715444_mig_authortitle_add.designer.cs">
       <DependentUpon>202109281715444_mig_authortitle_add.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202109291643102_mig_author_img_sizechange.cs" />
+    <Compile Include="Migrations\202109291643102_mig_author_img_sizechange.designer.cs">
+      <DependentUpon>202109291643102_mig_author_img_sizechange.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -81,6 +85,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202109281715444_mig_authortitle_add.resx">
       <DependentUpon>202109281715444_mig_authortitle_add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109291643102_mig_author_img_sizechange.resx">
+      <DependentUpon>202109291643102_mig_author_img_sizechange.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

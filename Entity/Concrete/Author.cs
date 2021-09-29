@@ -18,7 +18,7 @@ namespace Entity.Concrete
         [StringLength(50)]
         public string AuthorSurname { get; set; }
 
-        [StringLength(100)]
+        [StringLength(250)]
         public string AuthorImage { get; set; }
 
         [StringLength(100)]
