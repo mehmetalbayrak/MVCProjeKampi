@@ -1,0 +1,33 @@
+﻿@using Entity.Concrete
+@model List<Title>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Başlık Adı</th>
+        <th>Başlık Tarihi</th>
+        <th>Kategori</th>
+        <th>Yazar</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.TitleId</td>
+            <td>@item.TitleName</td>
+            <td>@item.TitleDate</td>
+            <td>@item.Category.CategoryName</td>
+            <td>@item.Author.AuthorName @item.Author.AuthorSurname</td>
+        </tr>
+    }
+
+</table>
+<div>
+    <a href="/Title/AddTitle" class ="btn btn-primary">Yeni Başlık</a>
+</div>
+

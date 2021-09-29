@@ -136,6 +136,7 @@
     <Compile Include="Controllers\AuthorController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TitleController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2276,6 +2277,8 @@
     <Content Include="Views\Author\Index.cshtml" />
     <Content Include="Views\Author\AddAuthor.cshtml" />
     <Content Include="Views\Author\EditAuthor.cshtml" />
+    <Content Include="Views\Title\Index.cshtml" />
+    <Content Include="Views\Title\AddTitle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2335,7 +2338,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>56327</DevelopmentServerPort>
+          <DevelopmentServerPort>44395</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>https://localhost:44395/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
