@@ -56,9 +56,11 @@
   <ItemGroup>
     <Compile Include="Abstract\IAuthorService.cs" />
     <Compile Include="Abstract\ICategoryService.cs" />
+    <Compile Include="Abstract\IContentService.cs" />
     <Compile Include="Abstract\ITitleService.cs" />
     <Compile Include="Concrete\AuthorManager.cs" />
     <Compile Include="Concrete\CategoryManager.cs" />
+    <Compile Include="Concrete\ContentManager.cs" />
     <Compile Include="Concrete\TitleManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidationRules\AuthorValidator.cs" />

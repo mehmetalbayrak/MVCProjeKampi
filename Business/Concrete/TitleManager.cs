@@ -25,7 +25,8 @@ namespace Business.Concrete
 
         public void DeleteTitle(Title title)
         {
-            _titleDal.Delete(title);
+            title.TitleStatus = false;
+            _titleDal.Update(title);
         }
 
         public Title GetById(int id)

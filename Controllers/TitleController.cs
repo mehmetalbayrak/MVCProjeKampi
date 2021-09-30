@@ -32,11 +32,11 @@ namespace MvcProjeKampi.Controllers
             ViewBag.vlc = categoryValues;
 
             List<SelectListItem> authorValues = (from x in authorManager.GetList()
-                                                   select new SelectListItem
-                                                   {
-                                                       Text = x.AuthorName+ " "+ x.AuthorSurname,
-                                                       Value = x.AuthorId.ToString()
-                                                   }).ToList();
+                                                 select new SelectListItem
+                                                 {
+                                                     Text = x.AuthorName + " " + x.AuthorSurname,
+                                                     Value = x.AuthorId.ToString()
+                                                 }).ToList();
             ViewBag.aut = authorValues;
             return View();
         }
@@ -45,6 +45,31 @@ namespace MvcProjeKampi.Controllers
         {
             title.TitleDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             titleManager.AddTitle(title);
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public ActionResult UpdateTitle(int id)
+        {
+            List<SelectListItem> categoryValues = (from x in categoryManager.GetList()
+                                                   select new SelectListItem
+                                                   {
+                                                       Text = x.CategoryName,
+                                                       Value = x.CategoryId.ToString()
+                                                   }).ToList();
+            var titleValue = titleManager.GetById(id);
+            ViewBag.vlc = categoryValues;
+            return View(titleValue);
+        }
+        [HttpPost]
+        public ActionResult UpdateTitle(Title title)
+        {
+            titleManager.UpdateTitle(title);
+            return RedirectToAction("Index");
+        }
+        public ActionResult DeleteTitle(int id)
+        {
+            var titleValue = titleManager.GetById(id);
+            titleManager.DeleteTitle(titleValue);
             return RedirectToAction("Index");
         }
     }

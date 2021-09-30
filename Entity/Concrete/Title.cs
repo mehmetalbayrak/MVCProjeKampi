@@ -17,6 +17,7 @@ namespace Entity.Concrete
         public DateTime TitleDate { get; set; }
 
         public int CategoryId { get; set; }
+        public bool TitleStatus { get; set; }
         public virtual Category Category { get; set; }
 
         public int AuthorId { get; set; }

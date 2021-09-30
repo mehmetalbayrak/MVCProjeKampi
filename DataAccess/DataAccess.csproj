@@ -63,6 +63,7 @@
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
     <Compile Include="EntityFramework\EfAuthorDal.cs" />
     <Compile Include="EntityFramework\EfCategoryDal.cs" />
+    <Compile Include="EntityFramework\EfContentDal.cs" />
     <Compile Include="EntityFramework\EfTitleDal.cs" />
     <Compile Include="Migrations\202109281430292_mig_author_edit.cs" />
     <Compile Include="Migrations\202109281430292_mig_author_edit.designer.cs">
@@ -76,6 +77,18 @@
     <Compile Include="Migrations\202109291643102_mig_author_img_sizechange.designer.cs">
       <DependentUpon>202109291643102_mig_author_img_sizechange.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202109300808101_mig_author_status_add.cs" />
+    <Compile Include="Migrations\202109300808101_mig_author_status_add.designer.cs">
+      <DependentUpon>202109300808101_mig_author_status_add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109301126091_mig_content_status.cs" />
+    <Compile Include="Migrations\202109301126091_mig_content_status.designer.cs">
+      <DependentUpon>202109301126091_mig_content_status.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109301129354_mig_title_status.cs" />
+    <Compile Include="Migrations\202109301129354_mig_title_status.designer.cs">
+      <DependentUpon>202109301129354_mig_title_status.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -88,6 +101,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202109291643102_mig_author_img_sizechange.resx">
       <DependentUpon>202109291643102_mig_author_img_sizechange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109300808101_mig_author_status_add.resx">
+      <DependentUpon>202109300808101_mig_author_status_add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109301126091_mig_content_status.resx">
+      <DependentUpon>202109301126091_mig_content_status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109301129354_mig_title_status.resx">
+      <DependentUpon>202109301129354_mig_title_status.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

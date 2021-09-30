@@ -32,6 +32,7 @@ namespace Entity.Concrete
 
         [StringLength(50)]
         public string AuthorTitle { get; set; }
+        public bool AuthorStatus { get; set; }
 
         public ICollection<Title> Titles { get; set; }
         public ICollection<Content> Contents { get; set; }
