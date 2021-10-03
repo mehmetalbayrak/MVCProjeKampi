@@ -69,6 +69,7 @@ namespace MvcProjeKampi.Controllers
         public ActionResult DeleteTitle(int id)
         {
             var titleValue = titleManager.GetById(id);
+            titleValue.TitleStatus = false;
             titleManager.DeleteTitle(titleValue);
             return RedirectToAction("Index");
         }

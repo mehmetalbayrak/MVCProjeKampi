@@ -16,5 +16,6 @@ namespace DataAccess.Concrete
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Content> Contents { get; set; }
         public DbSet<Title> Titles { get; set; }
+        public DbSet<Message> Messages { get; set; }
     }
 }
