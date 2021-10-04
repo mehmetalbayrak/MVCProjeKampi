@@ -20,27 +20,37 @@ namespace Business.Concrete
 
         public void AddMessage(Message message)
         {
-            throw new NotImplementedException();
+            _messageDal.Insert(message);
         }
 
         public void DeleteMessage(Message message)
         {
-            throw new NotImplementedException();
+            _messageDal.Delete(message);
         }
 
         public Message GetById(int id)
         {
-            throw new NotImplementedException();
+            return _messageDal.Get(x => x.MessageId == id);
         }
 
         public List<Message> GetList()
         {
-            return _messageDal.List(x=>x.ReceiverMail== "admin@gmail.com");
+            return _messageDal.List();
+        }
+
+        public List<Message> GetListInbox()
+        {
+            return _messageDal.List(x => x.ReceiverMail == "admin@gmail.com");
+        }
+
+        public List<Message> GetListSendbox()
+        {
+            return _messageDal.List(x => x.SenderMail == "admin@gmail.com");
         }
 
         public void UpdateMessage(Message message)
         {
-            throw new NotImplementedException();
+            _messageDal.Update(message);
         }
     }
 }

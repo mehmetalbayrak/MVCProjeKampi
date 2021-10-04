@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete
 {
-    public class Context:DbContext
+    public class Context : DbContext
     {
         public DbSet<About> Abouts { get; set; }
         public DbSet<Author> Authors { get; set; }
@@ -17,5 +17,7 @@ namespace DataAccess.Concrete
         public DbSet<Content> Contents { get; set; }
         public DbSet<Title> Titles { get; set; }
         public DbSet<Message> Messages { get; set; }
+        public DbSet<ImageFile> ImageFiles { get; set; }
+        public DbSet<Admin> Admins { get; set; }
     }
 }
