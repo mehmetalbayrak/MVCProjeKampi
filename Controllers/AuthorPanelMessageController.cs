@@ -11,12 +11,11 @@ using System.Web.Mvc;
 
 namespace MvcProjeKampi.Controllers
 {
-    public class MessageController : Controller
+    public class AuthorPanelMessageController : Controller
     {
         MessageManager messageManager = new MessageManager(new EfMessageDal());
         MessageValidator validationRules = new MessageValidator();
-        // GET: Message
-        [Authorize]
+        // GET: AuthorPanelMessage
         public ActionResult Inbox()
         {
             var messageValue = messageManager.GetListInbox();
@@ -26,6 +25,20 @@ namespace MvcProjeKampi.Controllers
         {
             var messageList = messageManager.GetListSendbox();
             return View(messageList);
+        }
+        public PartialViewResult MessageListMenu()
+        {
+            return PartialView();
+        }
+        public ActionResult GetInboxMessageDetails(int id)
+        {
+            var values = messageManager.GetById(id);
+            return View(values);
+        }
+        public ActionResult GetSendboxMessageDetails(int id)
+        {
+            var values = messageManager.GetById(id);
+            return View(values);
         }
         [HttpGet]
         public ActionResult NewMessage()
@@ -38,6 +51,7 @@ namespace MvcProjeKampi.Controllers
             ValidationResult validationResult = validationRules.Validate(message);
             if (validationResult.IsValid)
             {
+                message.SenderMail = "admin@gmail.com";
                 message.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                 messageManager.AddMessage(message);
                 return RedirectToAction("Sendbox");
@@ -50,16 +64,6 @@ namespace MvcProjeKampi.Controllers
                 }
             }
             return View();
-        }
-        public ActionResult GetInboxMessageDetails(int id)
-        {
-            var values = messageManager.GetById(id);
-            return View(values);
-        }
-        public ActionResult GetSendboxMessageDetails(int id)
-        {
-            var values = messageManager.GetById(id);
-            return View(values);
         }
     }
 }

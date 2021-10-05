@@ -60,110 +60,31 @@ to get the desired effect
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                              with font-awesome or any other icon font library -->
-                        @if (User.IsInRole("B"))
-                        {
                             <li class="nav-item has-treeview">
                                 <a href="/AdminCategory/Index" class="nav-link">
                                     <i class="nav-icon fas fa-list-ul"></i>
                                     <p>
-                                        Kategoriler
+                                        Profilim
                                     </p>
                                 </a>
                             </li>
-                        }
                         <li class="nav-item">
-                            <a href="/Title/Index" class="nav-link">
+                            <a href="/AuthorPanel/MyTitle" class="nav-link">
                                 <i class="nav-icon fas fa-heading"></i>
                                 <p>
-                                    Başlıklar
+                                    Başlıklarım
                                 </p>
                             </a>
                         </li>
+
                         <li class="nav-item has-treeview">
-                            <a href="/Author/Index" class="nav-link">
-                                <i class="nav-icon fas fa-pen"></i>
-                                <p>
-                                    Yazarlar
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-line"></i>
-                                <p>
-                                    Grafikler
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="pages/charts/chartjs.html" class="nav-link">
-                                        <i class="fas fa-chart-pie nav-icon"></i>
-                                        <p>Pasta Grafik</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/charts/flot.html" class="nav-link">
-                                        <i class="fas fa-chart-bar nav-icon"></i>
-                                        <p>Sütun Grafik</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/charts/inline.html" class="nav-link">
-                                        <i class="fas fa-chart-area nav-icon"></i>
-                                        <p>Çizgi Grafik</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="/About/Index" class="nav-link">
-                                <i class="nav-icon fas fa-tree"></i>
-                                <p>
-                                    Hakkımızda
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="/Contact/Index/" class="nav-link">
+                            <a href="/AuthorPanelMessage/Sendbox/" class="nav-link">
                                 <i class="nav-icon fas fa-info"></i>
                                 <p>
-                                    İletişim &amp; Mesajlar
+                                    Mesajlarım
                                 </p>
                             </a>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-file-alt"></i>
-                                <p>
-                                    Yazılar
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/calendar.html" class="nav-link">
-                                <i class="nav-icon fas fa-address-card"></i>
-                                <p>
-                                    Yetkilendirmeler
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/Gallery/Index" class="nav-link">
-                                <i class="nav-icon far fa-image"></i>
-                                <p>
-                                    Galeri
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="/ErrorPage/Page404" class="nav-link">
-                                <i class="nav-icon fas fa-times"></i>
-                                <p>
-                                    Hata Sayfaları
-                                </p>
-                            </a>
-                        </li>
+                        </li>                                                                                             
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-arrow-right"></i>

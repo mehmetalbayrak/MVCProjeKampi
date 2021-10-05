@@ -14,5 +14,6 @@ namespace Business.Abstract
         void DeleteTitle(Title title);
         void UpdateTitle(Title title);
         Title GetById(int id);
+        List<Title> GetListByAuthor();
     }
 }

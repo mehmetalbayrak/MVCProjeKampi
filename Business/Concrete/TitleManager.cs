@@ -30,12 +30,17 @@ namespace Business.Concrete
 
         public Title GetById(int id)
         {
-            return _titleDal.Get(x=>x.TitleId==id);
+            return _titleDal.Get(x => x.TitleId == id);
         }
 
         public List<Title> GetList()
         {
             return _titleDal.List();
+        }
+
+        public List<Title> GetListByAuthor()
+        {
+            return _titleDal.List(x => x.AuthorId == 2);
         }
 
         public void UpdateTitle(Title title)

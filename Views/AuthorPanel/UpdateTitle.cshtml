@@ -1,0 +1,22 @@
+﻿@model Entity.Concrete.Title
+@{
+    ViewBag.Title = "UpdateTitle";
+    Layout = "~/Views/Shared/_AuthorLayout.cshtml";
+}
+
+<h2>Başlık Güncelle Sayfası</h2>
+@using (Html.BeginForm("UpdateTitle", "AuthorPanel", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(x => x.TitleId)
+        @Html.HiddenFor(x => x.TitleDate)
+        @Html.HiddenFor(x => x.AuthorId)
+        @Html.Label("Başlık Adı")
+        @Html.TextBoxFor(x => x.TitleName, new { @class = "form-control" })
+        <br />
+        @Html.Label("Kategori")
+        @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.vlc, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-success">Güncelle</button>
+    </div>
+}

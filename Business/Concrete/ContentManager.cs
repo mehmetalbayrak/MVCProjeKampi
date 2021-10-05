@@ -38,9 +38,14 @@ namespace Business.Concrete
             throw new NotImplementedException();
         }
 
+        public List<Content> GetListByAuthor()
+        {
+            return _contentDal.List(x => x.AuthorId == 2);
+        }
+
         public List<Content> GetListById(int id)
         {
-            return _contentDal.List(x=>x.TitleId==id);
+            return _contentDal.List(x => x.TitleId == id);
         }
 
         public void UpdateContent(Content content)
