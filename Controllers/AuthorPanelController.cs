@@ -1,4 +1,5 @@
 ﻿using Business.Concrete;
+using DataAccess.Concrete;
 using DataAccess.EntityFramework;
 using Entity.Concrete;
 using System;
@@ -13,14 +14,17 @@ namespace MvcProjeKampi.Controllers
     {
         TitleManager titleManager = new TitleManager(new EfTitleDal());
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
+        Context context = new Context();
         // GET: AuthorPanel
         public ActionResult AuthorProfile()
         {
             return View();
         }
-        public ActionResult MyTitle()
+        public ActionResult MyTitle(string session)
         {
-            var values = titleManager.GetListByAuthor();
+            session = (string)Session["AuthorEmail"];
+            var authorIdInfo = context.Authors.Where(x => x.AuthorEmail == session).Select(y => y.AuthorId).FirstOrDefault();
+            var values = titleManager.GetListByAuthor(authorIdInfo);
             return View(values);
         }
         [HttpGet]
@@ -38,8 +42,10 @@ namespace MvcProjeKampi.Controllers
         [HttpPost]
         public ActionResult NewTitle(Title title)
         {
+            string authorMailInfo = (string)Session["AuthorEmail"];
+            var authorIdInfo = context.Authors.Where(x => x.AuthorEmail == authorMailInfo).Select(y => y.AuthorId).FirstOrDefault();
             title.TitleDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-            title.AuthorId = 2;
+            title.AuthorId = authorIdInfo;
             title.TitleStatus = true;
             titleManager.AddTitle(title);
             return RedirectToAction("MyTitle");
@@ -69,6 +75,11 @@ namespace MvcProjeKampi.Controllers
             titleValue.TitleStatus = false;
             titleManager.DeleteTitle(titleValue);
             return RedirectToAction("MyTitle");
+        }
+        public ActionResult AllTitle()
+        {
+            var titleValues = titleManager.GetList();
+            return View(titleValues);
         }
     }
 }

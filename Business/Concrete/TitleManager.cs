@@ -38,9 +38,9 @@ namespace Business.Concrete
             return _titleDal.List();
         }
 
-        public List<Title> GetListByAuthor()
+        public List<Title> GetListByAuthor(int id)
         {
-            return _titleDal.List(x => x.AuthorId == 2);
+            return _titleDal.List(x => x.AuthorId == id);
         }
 
         public void UpdateTitle(Title title)

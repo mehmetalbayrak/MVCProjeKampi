@@ -20,7 +20,7 @@ namespace Business.Concrete
 
         public void AddContent(Content content)
         {
-            throw new NotImplementedException();
+            _contentDal.Insert(content);
         }
 
         public void DeleteContent(Content content)
@@ -35,12 +35,12 @@ namespace Business.Concrete
 
         public List<Content> GetList()
         {
-            throw new NotImplementedException();
+            return _contentDal.List();
         }
 
-        public List<Content> GetListByAuthor()
+        public List<Content> GetListByAuthor(int id)
         {
-            return _contentDal.List(x => x.AuthorId == 2);
+            return _contentDal.List(x => x.AuthorId == id);
         }
 
         public List<Content> GetListById(int id)
