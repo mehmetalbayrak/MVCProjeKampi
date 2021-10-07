@@ -9,6 +9,7 @@ namespace Business.Abstract
 {
     public interface IContentService
     {
+        List<Content> GetListBySearch(string search);
         List<Content> GetList();
         List<Content> GetListByAuthor(int id);
         List<Content> GetListById(int id);

@@ -16,6 +16,11 @@ namespace MvcProjeKampi.Controllers
         {
             return View();
         }
+        public ActionResult GetAllContent(string search)
+        {
+            var values = contentManager.GetListBySearch(search);
+            return View(values);
+        }
         public ActionResult ContentByTitle(int id)
         {
             var contentValues = contentManager.GetListById(id);

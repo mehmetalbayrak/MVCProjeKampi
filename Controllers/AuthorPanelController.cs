@@ -7,6 +7,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
+using FluentValidation.Results;
+using Business.ValidationRules;
 
 namespace MvcProjeKampi.Controllers
 {
@@ -15,9 +19,34 @@ namespace MvcProjeKampi.Controllers
         TitleManager titleManager = new TitleManager(new EfTitleDal());
         CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
         Context context = new Context();
+        AuthorManager authorManager = new AuthorManager(new EfAuthorDal());
+        AuthorValidator validationRules = new AuthorValidator();
+
         // GET: AuthorPanel
+        [HttpGet]
         public ActionResult AuthorProfile()
         {
+            string session = (string)Session["AuthorEmail"];
+            int id = context.Authors.Where(x => x.AuthorEmail == session).Select(y => y.AuthorId).FirstOrDefault();
+            var authorValue = authorManager.GetById(id);
+            return View(authorValue);
+        }
+        [HttpPost]
+        public ActionResult AuthorProfile(Author author)
+        {
+            ValidationResult validationResult = validationRules.Validate(author);
+            if (validationResult.IsValid)
+            {
+                authorManager.UpdateAuthor(author);
+                return RedirectToAction("AllTitle");
+            }
+            else
+            {
+                foreach (var item in validationResult.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
             return View();
         }
         public ActionResult MyTitle(string session)
@@ -76,9 +105,9 @@ namespace MvcProjeKampi.Controllers
             titleManager.DeleteTitle(titleValue);
             return RedirectToAction("MyTitle");
         }
-        public ActionResult AllTitle()
+        public ActionResult AllTitle(int page = 1)
         {
-            var titleValues = titleManager.GetList();
+            var titleValues = titleManager.GetList().ToPagedList(page, 4);
             return View(titleValues);
         }
     }

@@ -48,6 +48,15 @@ namespace Business.Concrete
             return _contentDal.List(x => x.TitleId == id);
         }
 
+        public List<Content> GetListBySearch(string search)
+        {
+            if (!string.IsNullOrEmpty(search))
+            {
+                return _contentDal.List(x => x.ContentValue.Contains(search));
+            }
+            return _contentDal.List();
+        }
+
         public void UpdateContent(Content content)
         {
             throw new NotImplementedException();

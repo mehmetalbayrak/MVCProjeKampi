@@ -1,4 +1,6 @@
-﻿using DataAccess.Concrete;
+﻿using Business.Concrete;
+using DataAccess.Concrete;
+using DataAccess.EntityFramework;
 using Entity.Concrete;
 using System;
 using System.Collections.Generic;
@@ -12,6 +14,7 @@ namespace MvcProjeKampi.Controllers
     [AllowAnonymous]
     public class LoginController : Controller
     {
+        AuthorLoginManager authorLoginManager = new AuthorLoginManager(new EfAuthorDal());
         // GET: Login
         [HttpGet]
         public ActionResult Index()
@@ -23,11 +26,11 @@ namespace MvcProjeKampi.Controllers
         {
             Context context = new Context();
             var adminUserInfo = context.Admins.FirstOrDefault(x => x.AdminUserName == admin.AdminUserName && x.AdminPassword == admin.AdminPassword);
-            if (adminUserInfo !=null)
+            if (adminUserInfo != null)
             {
-                FormsAuthentication.SetAuthCookie(adminUserInfo.AdminUserName,false);
+                FormsAuthentication.SetAuthCookie(adminUserInfo.AdminUserName, false);
                 Session["AdminUserName"] = adminUserInfo.AdminUserName;
-                return RedirectToAction("Index","AdminCategory");
+                return RedirectToAction("Index", "AdminCategory");
             }
             else
             {
@@ -44,8 +47,9 @@ namespace MvcProjeKampi.Controllers
         [HttpPost]
         public ActionResult AuthorLogin(Author author)
         {
-            Context context = new Context();
-            var authorUserInfo = context.Authors.FirstOrDefault(x => x.AuthorEmail == author.AuthorEmail && x.AuthorPassword == author.AuthorPassword);
+            //Context context = new Context();
+            //var authorUserInfo = context.Authors.FirstOrDefault(x => x.AuthorEmail == author.AuthorEmail && x.AuthorPassword == author.AuthorPassword);
+            var authorUserInfo = authorLoginManager.GetAuthor(author.AuthorEmail, author.AuthorPassword);
             if (authorUserInfo != null)
             {
                 FormsAuthentication.SetAuthCookie(authorUserInfo.AuthorEmail, false);
@@ -57,11 +61,11 @@ namespace MvcProjeKampi.Controllers
                 return RedirectToAction("AuthorLogin");
             }
         }
-        public ActionResult LogOut() 
+        public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();
             Session.Abandon();
-            return RedirectToAction("Titles","Default");
+            return RedirectToAction("Titles", "Default");
         }
     }
 }
