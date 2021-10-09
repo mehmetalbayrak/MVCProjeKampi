@@ -73,5 +73,10 @@ namespace MvcProjeKampi.Controllers
             titleManager.DeleteTitle(titleValue);
             return RedirectToAction("Index");
         }
+        public ActionResult TitleReport()
+        {
+            var titleValues = titleManager.GetList();
+            return View(titleValues);
+        }
     }
 }
